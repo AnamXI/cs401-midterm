@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void {
 
+
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->comment('user first name.');
-            $table->string('last_name')->comment('user last name.');
             $table->string('program')->comment("Student's Program");
-            $table->string('enrollment_year')->comment("Year student enrolled on")->max(4);
-            $table->date('birthday')->comment("Student's Birthday");
+            $table->string('enrollment_year', 4)->comment("Year student enrolled");
+            $table->datetime('birthday')->comment("Student's Birthday");
         });
-
     }
 
     /**

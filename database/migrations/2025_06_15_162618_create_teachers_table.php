@@ -13,11 +13,9 @@ return new class extends Migration
 
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->comment('user first name.');
-            $table->string('last_name')->comment('user last name.');
-            $table->string('email')->comment("teacher's email")->max(50);
-            $table->string('department')->comment("teacher's department")->max(10);
-            $table->date('birthday')->comment("teacher's date of birth");
+            $table->string('email', 50)->comment("teacher's email");
+            $table->string('department', 10)->comment("teacher's department");
+            $table->datetime('birthday')->comment("teacher's date of birth");
         });
 
     }

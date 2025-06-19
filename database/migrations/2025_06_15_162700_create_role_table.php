@@ -13,13 +13,11 @@ return new class extends Migration
 
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('role_name')->comment('Name of the Role')->max(30);
+            $table->string('role_name', 30)->comment('Name of the Role');
             $table->string('description')->comment('What the role is about');
-            $table->timestamp('timestamps');
+            $table->timestamps();
         });
-
     }
-
     /**
      * Reverse the migrations.
      */
