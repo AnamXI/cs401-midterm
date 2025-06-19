@@ -11,11 +11,6 @@ class Student extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function classes(): BelongsTo
-    {
-        return $this->belongsToMany(User::class, 'class_student', 'id', 'id')->withTimestamps();
+        return $this->belongsTo(User::class);
     }
 }

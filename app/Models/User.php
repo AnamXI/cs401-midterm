@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Model
 {
+    protected $guarded = [];
     public function student(): HasOne
     {
         return $this->hasOne(Student::class);
@@ -17,8 +20,8 @@ class User extends Model
         return $this->hasOne(Teacher::class);
     }
 
-    public function role(): HasOne
+    public function roles(): BelongsToMany
     {
-        return $this->hasOne(Role::class);
+        return $this->belongsToMany(Role::class, 'user_role');
     }
 }

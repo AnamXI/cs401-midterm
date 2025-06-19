@@ -6,16 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Teacher extends Model
+class Course extends Model
 {
     protected $guarded = [];
 
-    public function user(): BelongsTo
+    public function teacher(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Teacher::class);
     }
-    public function courses(): HasMany
+
+    public function schedules(): HasMany
     {
-        return $this->hasMany(Course::class);
+        return $this->hasMany(Schedule::class);
     }
 }
