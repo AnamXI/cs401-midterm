@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::table('students', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('first_name')->references('first_name')->on('users');
+            $table->foreign('last_name')->references('last_name')->on('users');
         });
     }
 
@@ -25,6 +27,10 @@ return new class extends Migration
         Schema::table('students', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropColumn('user_id');
+            $table->dropForeign(['first_name']);
+            $table->dropColumn('first_name');
+            $table->dropForeign(['last_name']);
+            $table->dropColumn('last_name');
         });
     }
 };

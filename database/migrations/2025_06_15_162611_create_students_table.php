@@ -9,10 +9,23 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void {}
+    public function up(): void {
+
+        Schema::create('students', function (Blueprint $table) {
+            $table->id();
+            $table->string('first_name')->comment('user first name.');
+            $table->string('last_name')->comment('user last name.');
+            $table->string('program')->comment("Student's Program");
+            $table->string('enrollment_year')->comment("Year student enrolled on")->max(4);
+            $table->date('birthday')->comment("Student's Birthday");
+        });
+
+    }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void {}
+    public function down(): void {
+        Schema::dropIfExists('students');
+    }
 };
