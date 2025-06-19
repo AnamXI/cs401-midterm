@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void {
 
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('subject', 50)->comment('Class Subject');
             $table->string('course_code', 10)->comment('Class Course Code');
@@ -25,6 +25,6 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('courses');
     }
 };

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('day_of_the_week', 10)->comment('Class Day');
             $table->datetime('time_slot')->comment('Class Time Slot');
-            $table->integer('room', 20)->comment('Room where class is');
+            $table->string('room', 20)->comment('Room where class is');
             $table->integer('term')->comment('Term Number');
         });
 
