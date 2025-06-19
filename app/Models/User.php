@@ -16,4 +16,9 @@ class User extends Model
     {
         return $this->hasOne(Teacher::class);
     }
+
+    public function role(): HasOne
+    {
+        return $this->hasOne(Role::class);
+    }
 }
